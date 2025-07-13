@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdalla Edres - CV</title>
+    <title>Abdalla Edres - Product Manager | Growth & Innovation</title>
+    <meta name="description" content="Product Manager with 7+ years of startup experience in ride-hailing, healthcare, and F&B tech. Leading 0→1 product development and scaling to millions of users.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         * {
             margin: 0;
@@ -11,459 +17,1363 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
-            padding: 20px;
+        html {
+            scroll-behavior: smooth;
         }
 
-        .cv-container {
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: url('https://images.unsplash.com/photo-1579546929518-9e396f3cc809?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: white;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin: 0 auto 2rem;
+            display: block;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* About Section */
+        .about {
+            background: #f8f9fa;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay i {
+            font-size: 3rem;
+            color: white;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .project-role {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tag {
+            background: #f0f0f0;
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: #764ba2;
+        }
+
+        /* Experience Timeline */
+        .experience {
+            background: #f8f9fa;
+        }
+
+        .timeline {
+            position: relative;
             max-width: 800px;
             margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-content {
             background: white;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 8px;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 45%;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-right: auto;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .timeline-date {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-company {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .skill-item {
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: #f0f0f0;
+            border-radius: 10px;
             overflow: hidden;
         }
 
-        /* Header Section */
-        .header {
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            transition: width 2s ease;
+        }
+
+        /* Contact Section */
+        .contact {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px 30px;
-            display: flex;
-            align-items: center;
-            gap: 30px;
         }
 
-        .profile-photo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            border: 4px solid white;
-            object-fit: cover;
-            flex-shrink: 0;
+        .contact-content {
+            text-align: center;
         }
 
-        .name-title {
-            flex: 1;
-        }
-
-        .name {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            letter-spacing: -1px;
-        }
-
-        .title {
-            font-size: 1.3rem;
-            font-weight: 400;
-            opacity: 0.9;
-            letter-spacing: 2px;
-        }
-
-        /* Summary Section */
-        .summary {
-            padding: 30px;
-            background: #fafafa;
-            border-left: 4px solid #667eea;
-        }
-
-        .summary p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #444;
-        }
-
-        /* Main Content */
-        .main-content {
-            display: flex;
-            gap: 30px;
-            padding: 30px;
-        }
-
-        .left-column {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .right-column {
-            flex: 2;
-            min-width: 400px;
-        }
-
-        /* Section Styling */
-        .section {
-            margin-bottom: 30px;
-        }
-
-        .section h2 {
-            color: #333;
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #667eea;
-            position: relative;
-        }
-
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 30px;
-            height: 2px;
-            background: #764ba2;
-        }
-
-        /* Contact Info */
         .contact-info {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
         }
 
         .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
         }
 
-        .contact-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .contact-icon {
-            width: 20px;
-            margin-right: 12px;
+        .social-link:hover {
+            background: white;
             color: #667eea;
+            transform: translateY(-3px);
         }
 
-        /* Education */
-        .education-item {
-            margin-bottom: 20px;
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
         }
 
-        .education-item h3 {
-            color: #333;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .education-item .degree {
-            font-weight: 600;
-            color: #667eea;
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
         }
 
-        .education-item .details {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* Experience */
-        .experience-item {
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #fafafa;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-
-        .job-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .company {
-            font-size: 1rem;
-            color: #667eea;
-            margin-bottom: 5px;
-        }
-
-        .duration {
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        .achievements {
-            list-style: none;
-            padding: 0;
-        }
-
-        .achievements li {
-            position: relative;
-            padding-left: 20px;
-            margin-bottom: 8px;
-            color: #555;
-            line-height: 1.4;
-        }
-
-        .achievements li::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-size: 0.8rem;
-        }
-
-        /* Skills */
-        .skills-category {
-            margin-bottom: 20px;
-        }
-
-        .skills-category h3 {
-            color: #333;
-            font-size: 1rem;
-            margin-bottom: 10px;
-        }
-
-        .skills-list {
-            color: #666;
-            line-height: 1.6;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
+            .nav-links {
+                display: none;
             }
 
-            .name {
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .main-content {
-                flex-direction: column;
-                gap: 20px;
+            .hero-subtitle {
+                font-size: 1.2rem;
             }
 
-            .cv-container {
-                margin: 10px;
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+
+            .timeline-dot {
+                left: 20px;
+                transform: none;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="cv-container">
-        <!-- Header Section -->
-        <div class="header">
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiByeD0iNjAiIGZpbGw9IiM2NjdlZWEiLz4KPHN2ZyB4PSIzMCIgeT0iMzAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yMCAyMXYtMmE0IDQgMCAwIDAtNC00SDhhNCA0IDAgMCAwLTQgNHYyIi8+CjxjaXJjbGUgY3g9IjEyIiBjeT0iNyIgcj0iNCIvPgo8L3N2Zz4KPC9zdmc+" alt="Profile Photo" class="profile-photo">
-            <div class="name-title">
-                <h1 class="name">Abdalla Edres</h1>
-                <p class="title">Product Manager | SaaS | Growth</p>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">AE</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
         </div>
+    </nav>
 
-        <!-- Summary Section -->
-        <div class="summary">
-            <p>Product Manager with 7+ years of startup experience, leading 0→1 product development, full-cycle feature delivery, platform scaling, and API integrations scoping across B2B2C environments. Successfully launched products to 3M+ users, driving adoption, retention, and product-market fit. Skilled in product-led growth, customer success management, cross-functional collaboration, and automation. Proficient in SQL and Python for automation, debugging, and internal tooling.</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="profile-image" style="width: 200px; height: 200px; border-radius: 50%; border: 5px solid white; margin: 0 auto 2rem; display: block; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem; font-weight: bold;">AE</div>
+            <h1>Abdalla Edres</h1>
+            <p class="hero-subtitle">Product Manager | Growth & Innovation</p>
+            <p class="hero-description">
+                Scaling products from 0→1 to millions of users across ride-hailing, healthcare, and F&B tech ecosystems
+            </p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    View Projects
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i>
+                    Get In Touch
+                </a>
+            </div>
         </div>
+    </section>
 
-        <!-- Main Content -->
-        <div class="main-content">
-            <!-- Left Column -->
-            <div class="left-column">
-                <!-- Contact Information -->
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title fade-in">About Me</h2>
+            <p class="section-subtitle fade-in">Product leader with a passion for building transformative technology</p>
+            
+            <div class="about-content">
+                <div class="about-image fade-in">
+                    <div style="width: 300px; height: 300px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 6rem; font-weight: bold; margin: 0 auto;">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                </div>
+                <div class="about-text fade-in">
+                    <p>
+                        I'm a Product Manager with <strong>7+ years of startup experience</strong> leading 0→1 product development, 
+                        full-cycle feature delivery, and platform scaling across B2B2C environments. I've successfully launched 
+                        products to <strong>3M+ users</strong>, driving adoption, retention, and product-market fit.
+                    </p>
+                    <p>
+                        My journey spans from <strong>Software Engineer to Product Manager</strong>, giving me a unique technical 
+                        perspective on product strategy. I'm skilled in product-led growth, customer success management, 
+                        cross-functional collaboration, and automation.
+                    </p>
+                    <p>
+                        Currently at <strong>UrbanPiper</strong>, I lead product enhancements for F&B tech solutions across MENA, 
+                        managing API integrations with major partners and scaling automation capabilities that save 35% in manual effort.
+                    </p>
+                </div>
+            </div>
+
+            <div class="stats fade-in">
+                <div class="stat">
+                    <div class="stat-number">7+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">3M+</div>
+                    <div class="stat-label">Users Impacted</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">$244K</div>
+                    <div class="stat-label">ARR Scaled</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Merchants Onboarded</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <h2 class="section-title fade-in">Featured Projects</h2>
+            <p class="section-subtitle fade-in">Building products that scale and impact millions of users</p>
+            
+            <div class="projects-grid">
+                <!-- UrbanPiper -->
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1542641728-6ca359b085f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <div class="project-overlay">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">UrbanPiper</h3>
+                        <p class="project-role">Product Manager</p>
+                        <p class="project-description">
+                            Leading product enhancements for F&B tech platform serving major brands across MENA. 
+                            Scaled strategic accounts to $244K ARR and automated workflows reducing TAT by 35%.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">API Integrations</span>
+                            <span class="tag">Product Strategy</span>
+                            <span class="tag">B2B SaaS</span>
+                            <span class="tag">Automation</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://urbanpiper.com" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Visit Site
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ego -->
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <div class="project-overlay">
+                            <i class="fas fa-car"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Ego Ride-Hailing</h3>
+                        <p class="project-role">Head of Growth (Product)</p>
+                        <p class="project-description">
+                            Led post-launch strategy growing user base from 100K to 3M+ users and driver registrations 
+                            from 20K to 140K+ across Saudi Arabia. Achieved 4.7+ app store ratings.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Growth Strategy</span>
+                            <span class="tag">Mobile Apps</span>
+                            <span class="tag">0→1 Product</span>
+                            <span class="tag">Scale</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://ego-now.com/" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Website
+                            </a>
+                            <a href="https://apps.apple.com/us/app/ego-the-ride-hailing-app/id1378953127" target="_blank" class="project-link">
+                                <i class="fab fa-apple"></i>
+                                iOS App
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=ego.now.client" target="_blank" class="project-link">
+                                <i class="fab fa-google-play"></i>
+                                Android App
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cura Healthcare -->
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1531546932101-155fd62dc6a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <div class="project-overlay">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Cura Healthcare</h3>
+                        <p class="project-role">Growth Manager</p>
+                        <p class="project-description">
+                            Drove user acquisition across MENA for telemedicine platform. Established partnerships 
+                            with Pfizer, AstraZeneca, and Bupa, adding 300K+ users and improving conversion rates by 27%.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Healthcare Tech</span>
+                            <span class="tag">Growth Hacking</span>
+                            <span class="tag">Partnerships</span>
+                            <span class="tag">Mobile Health</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://cura.sa/en" target="_blank" class="project-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                Website
+                            </a>
+                            <a href="https://apps.apple.com/us/app/%D9%83%D9%8A%D9%88%D8%B1%D8%A7-cura-%D8%A7%D8%B3%D8%AA%D8%B4%D8%B1-%D8%B7%D8%A8%D9%8A%D8%A8/id1033016040?mt=8" target="_blank" class="project-link">
+                                <i class="fab fa-apple"></i>
+                                iOS App
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Graduation Project -->
+                <div class="project-card fade-in">
+                    <div class="project-image" style="background-image: url('https://images.unsplash.com/photo-1542641728-6ca359b085f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+                        <div class="project-overlay">
+                            <i class="fas fa-award"></i>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">IoT Healthcare Monitoring</h3>
+                        <p class="project-role">Lead Developer (Gov Grant)</p>
+                        <p class="project-description">
+                            Government-funded research project for "Intelligent Online Healthcare Monitoring System" - 
+                            IoT solution for elderly care. Awarded competitive grant by Egypt's Ministry of Scientific Research.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">IoT</span>
+                            <span class="tag">Healthcare</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Mobile Dev</span>
+                            <span class="tag">Research</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#contact" class="project-link">
+                                <i class="fas fa-info-circle"></i>
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="section experience" id="experience">
+        <div class="container">
+            <h2 class="section-title fade-in">Career Journey</h2>
+            <p class="section-subtitle fade-in">From Software Engineer to Product Leader</p>
+            
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">April 2025 – Present</div>
+                        <h3 class="timeline-title">Product Manager</h3>
+                        <div class="timeline-company">UrbanPiper (F&B Tech) | Dubai, UAE</div>
+                        <p class="timeline-description">
+                            Leading product enhancements and API integrations with major partners. Scaled strategic accounts 
+                            to $244K ARR and built automation capabilities saving 35% manual effort.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">July 2021 – March 2023</div>
+                        <h3 class="timeline-title">Head of Growth (Product)</h3>
+                        <div class="timeline-company">Ego (Ride-hailing) | Riyadh, Saudi Arabia</div>
+                        <p class="timeline-description">
+                            Led post-launch strategy growing user base from 100K to 3M+ users. Managed international team 
+                            of 20 across engineering and growth, achieving 4.7+ app store ratings.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">August 2020 – July 2021</div>
+                        <h3 class="timeline-title">Growth Manager</h3>
+                        <div class="timeline-company">Cura Healthcare (Telemedicine) | Riyadh, Saudi Arabia</div>
+                        <p class="timeline-description">
+                            Drove user acquisition across MENA, establishing partnerships with major pharma companies. 
+                            Added 300K+ users and improved conversion rates by 27%.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">April 2018 – August 2020</div>
+                        <h3 class="timeline-title">IT Program Manager</h3>
+                        <div class="timeline-company">Ego (Ride-hailing) | Riyadh, Saudi Arabia</div>
+                        <p class="timeline-description">
+                            Spearheaded launch of official Ego apps, setting foundation for 4M+ user base. 
+                            Owned end-to-end system architecture and managed global engineering team.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item fade-in">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">January 2017 – March 2018</div>
+                        <h3 class="timeline-title">Software Engineer</h3>
+                        <div class="timeline-company">Ego (Ride-hailing) | Riyadh, Saudi Arabia</div>
+                        <p class="timeline-description">
+                            Joined at ideation stage, conducted technical audits, and provided strategic recommendations 
+                            that influenced full product redevelopment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <h2 class="section-title fade-in">Core Competencies</h2>
+            <p class="section-subtitle fade-in">Technical expertise meets product strategy</p>
+            
+            <div class="skills-grid">
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-rocket"></i> Product Management</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Product Strategy</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Growth & Scaling</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Roadmap Planning</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>User Research</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-code"></i> Technical Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>API Integrations</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>SQL & Python</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Automation</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>System Architecture</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category fade-in">
+                    <h3><i class="fas fa-chart-line"></i> Analytics & Tools</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Mixpanel & Analytics</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>A/B Testing</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Data Visualization</span>
+                            <span>82%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 82%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Performance Marketing</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title fade-in" style="color: white;">Let's Build Something Amazing</h2>
+                <p class="section-subtitle fade-in" style="color: rgba(255,255,255,0.9);">
+                    Ready to scale your product from 0→1 to millions of users?
+                </p>
+                
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <span class="contact-icon">📧</span>
-                        <span>reachme@abdallaedres.com</span>
+                    <div class="contact-item fade-in">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>reachme@abdallaedres.com</p>
                     </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">📱</span>
-                        <span>+971 585 585 305</span>
+                    <div class="contact-item fade-in">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone</h3>
+                        <p>+971 585 585 305</p>
                     </div>
-                    <div class="contact-item">
-                        <span class="contact-icon">📍</span>
-                        <span>Meydan, Dubai, UAE</span>
-                    </div>
-                </div>
-
-                <!-- Languages -->
-                <div class="section">
-                    <h2>Languages</h2>
-                    <div class="skills-list">
-                        • Arabic — Native<br>
-                        • English — Advanced (IELTS 8.0, CEFR C1)
+                    <div class="contact-item fade-in">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Location</h3>
+                        <p>Meydan, Dubai, UAE</p>
                     </div>
                 </div>
 
-                <!-- Education -->
-                <div class="section">
-                    <h2>Education</h2>
-                    <div class="education-item">
-                        <h3>AAST University</h3>
-                        <p class="degree">BSc. in Software Engineering</p>
-                        <p class="details">Alexandria, Egypt<br>Sept 2012 - June 2016</p>
-                    </div>
-                    <div class="education-item">
-                        <h3>Leadership Roles</h3>
-                        <p class="degree">Google Student Ambassador</p>
-                        <p class="details">2014 - 2016</p>
-                        <p class="degree">President of Student Council</p>
-                        <p class="details">2014 - 2016</p>
-                    </div>
-                </div>
-
-                <!-- Certifications -->
-                <div class="section">
-                    <h2>Certifications</h2>
-                    <div class="skills-list">
-                        Analytics Mastery Course — Mixpanel (2020)<br>
-                        Product & AI Foundations — Reforge (2025)
-                    </div>
-                </div>
-
-                <!-- Core Competencies -->
-                <div class="section">
-                    <h2>Core Competencies</h2>
-                    <div class="skills-category">
-                        <h3>Product Management & User Success:</h3>
-                        <div class="skills-list">Product Strategy • Customer Lifecycle • Roadmap & Sprint Planning • Feature Prioritization • User Journey Mapping • Agile & Scrum • Technical Documentation • Requirements Gathering • Product-Led Growth</div>
-                    </div>
-                    <div class="skills-category">
-                        <h3>Technical Skills:</h3>
-                        <div class="skills-list">API Integrations • SQL • Python/JS Scripting • Debugging • JSON payload Structuring • Automation Workflows • GitHub • Power Automate</div>
-                    </div>
-                    <div class="skills-category">
-                        <h3>Analytics & Engagement Tools:</h3>
-                        <div class="skills-list">Mixpanel • CleverTap • DataDog • Braze • AppsFlyer • OneSignal • Branch.io • Twilio • Unifonic • Salesforce • Redash • Focity • Nolt • Linear • Figma • Jira • Miro</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right Column -->
-            <div class="right-column">
-                <!-- Professional Experience -->
-                <div class="section">
-                    <h2>Professional Experience</h2>
-                    
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div>
-                                <div class="company">UrbanPiper (Startup – F&B Tech) | Dubai, UAE</div>
-                                <div class="job-title">Product Manager</div>
-                            </div>
-                            <div class="duration">April 2025 – Present</div>
-                        </div>
-                        <ul class="achievements">
-                            <li>Scoped and delivered key product enhancements (Order modification flows, Self-onboarding), prioritizing features, defining user acceptance criteria, and adoption metrics.</li>
-                            <li>Led sprint planning, maintained backlog, prioritized features with engineering teams, ensuring alignment with business objectives.</li>
-                            <li>Wrote detailed product requirement documents (PRDs) and feature briefs with acceptance criteria.</li>
-                            <li>Conducted market research to assess product-market fit, funnel analysis, and cohort tracking to identify drop-off points for new features.</li>
-                            <li>Defined KPIs and monitored product health metrics (e.g., adoption, retention, churn, engagement, NPS).</li>
-                            <li>Led API integrations with partners (Talabat, Keeta, Careem, Foodics, NCR) to define scope, product requirements, resolve compatibility gaps, and validate endpoint behaviors.</li>
-                            <li>Drove adoption of new products (Periscope analytics, Menu V2) across the MENA region, conducting training sessions for 50+ external stakeholders.</li>
-                            <li>Scaled automation capabilities by building internal Python scripts that fetch data from several APIs, saving 35% in manual effort.</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div>
-                                <div class="job-title">Senior Technical Account Manager</div>
-                            </div>
-                            <div class="duration">July 2023 – May 2025</div>
-                        </div>
-                        <ul class="achievements">
-                            <li>Managed a portfolio of strategic accounts, including Tim Hortons, B.Laban, Mama'esh, HB Brands, and Malak Al Tawouk, scaling their go-lives to $244K ARR.</li>
-                            <li>Onboarded and educated 50+ merchants in creating and managing online menus, reporting and analytics, partner integrations, and order flows to run their digital marketplace operations and experience efficiently.</li>
-                            <li>Acted as the primary liaison between enterprise brands, food aggregators, and POS vendors, ensuring alignment timelines and smooth onboarding.</li>
-                            <li>Automated workflows to eliminate repetitive tasks (e.g., replacing corrupted resources and catalog management), reducing TAT from 6+ hours to minutes, and minimizing error rates.</li>
-                            <li>Monitored order injection rates and performance to identify at-risk accounts and implement retention strategies, resulting in preserved $80K in ARR.</li>
-                            <li>Created and implemented SOPs for onboarding partners, including branded device checks and API validations, streamlining the process and reducing go-live delays by over 30%.</li>
-                            <li>Diagnosed and resolved integration layer and product bugs using tools like ElasticSearch (Kibana) and Postman, resolving operational issues impacting merchants.</li>
-                            <li>Trained new team joiners and helped set up the support function by building training materials and conducting knowledge transfer sessions.</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div>
-                                <div class="company">Ego (Startup – Ride-hailing) | Riyadh, Saudi Arabia</div>
-                                <div class="job-title">Head of Growth (Product)</div>
-                            </div>
-                            <div class="duration">July 2021 – March 2023</div>
-                        </div>
-                        <ul class="achievements">
-                            <li>Led post-launch strategy across growth, hiring, and product evolution; grew user base from 100K to over 3 million and increased driver registrations from 20K to 140K+ across Saudi Arabia.</li>
-                            <li>Oversaw full company restructuring and organizational redesign; defined new operational models and reporting structures, influencing long-term scalability.</li>
-                            <li>Managed an international team of 20 across engineering and growth; handled all product roadmaps, team expansions, and feature releases.</li>
-                            <li>Implemented data-driven acquisition and activation programs, driving 40K+ monthly active rides and daily profits exceeding 500K SAR.</li>
-                            <li>Negotiated and secured discounted cloud infrastructure deals with AWS and Google, reducing operational costs by over $50K per quarter.</li>
-                            <li>Designed and executed strategies to elevate the app ratings, which resulted in a 4.7+ rating across platforms.</li>
-                            <li>Drafted and enforced strategic government-aligned contracts to secure profit-sharing and national operations without compromising company equity.</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div>
-                                <div class="company">Cura Healthcare (Startup – Telemedicine) | Riyadh, Saudi Arabia</div>
-                                <div class="job-title">Growth Manager</div>
-                            </div>
-                            <div class="duration">August 2020 – July 2021</div>
-                        </div>
-                        <ul class="achievements">
-                            <li>Led user acquisition and revenue growth across MENA by implementing growth hacks across mobile and web using deep-linking, in-app banners, and optimized onboarding flows to maximize app installs and program purchases.</li>
-                            <li>Established strategic partnerships with Pfizer, AstraZeneca, Bupa, and Medgulf to co-launch targeted health campaigns, adding 300K+ new users to the platform.</li>
-                            <li>Built and tested high-performing paid media campaigns on Meta, Google, and Snapchat; improved CPLs by 38% through A/B testing and creative iteration.</li>
-                            <li>Automated Cura's mental wellness funnel by segmenting patient personas, aligning landing pages, and deploying condition-specific retargeting campaigns.</li>
-                            <li>Collaborated cross-functionally with design, engineering, and data teams to streamline landing page performance, boosting lead-to-sale conversion rate by 27%.</li>
-                            <li>Monitored growth KPIs daily via custom dashboards and cohort analytics, optimizing CAC: LTV ratios and increasing sales revenue by 25% within 6 months.</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div>
-                                <div class="company">Ego (Startup – Ride-hailing) | Riyadh, Saudi Arabia</div>
-                                <div class="job-title">IT Program Manager</div>
-                            </div>
-                            <div class="duration">April 2018 – August 2020</div>
-                        </div>
-                        <ul class="achievements">
-                            <li>Spearheaded the launch of the official Ego apps, bootstrapped without external funding, setting the foundation for Ego's future 4M+ user base.</li>
-                            <li>Owned end-to-end system architecture for Ego's ride-hailing platform, including client and driver apps, backend systems, analytics, performance dashboards, and marketing automation tools.</li>
-                            <li>Authored the entire product backlog across multiple systems using Agile methodology – covering user journeys, ride lifecycle states, and advanced ride logic and features (e.g., quiet ride feature).</li>
-                            <li>Orchestrated UX/UI strategy with external designers, ensuring real-time data visualization and seamless integrations across systems.</li>
-                            <li>Recruited, vetted, and managed a global engineering team to build native iOS (Swift), Android (Java), backend (Node.js, GoLang, AWS), and frontend (Vue.js, React Native) apps from scratch.</li>
-                            <li>Demonstrated founder-level ownership in high-stakes startup conditions by mitigating financial disruptions, restoring critical assets during data loss events, and preserving engineering team engagement throughout project delivery.</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="experience-header">
-                            <div>
-                                <div class="company">Ego (Startup – Ride-hailing) | Riyadh, Saudi Arabia</div>
-                                <div class="job-title">Software Engineer</div>
-                            </div>
-                            <div class="duration">January 2017 – March 2018</div>
-                        </div>
-                        <ul class="achievements">
-                            <li>Joined the company at the ideation stage and conducted a full technical audit, uncovering fraudulent vendor activity and saving over 85k SAR by verifying invoicing and backend claims.</li>
-                            <li>Reverse-engineered existing white-label app (Cabily) to identify architectural flaws and security vulnerabilities.</li>
-                            <li>Conducted comprehensive competitor research to identify the roadmap needed to build the MVP.</li>
-                            <li>Provided critical early-stage technical analysis that led to the discontinuation of the initial product and initiated planning of a scalable, Uber-grade ride-hailing system.</li>
-                            <li>Acted as interim Tech Lead, coordinated with founders, and provided strategic recommendations that influenced full product redevelopment.</li>
-                        </ul>
-                    </div>
+                <div class="social-links fade-in">
+                    <a href="https://www.linkedin.com/in/abdallaedres/" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/abdallaedres" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:reachme@abdallaedres.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Abdalla Edres. Crafted with passion for innovation.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animate skill bars when they come into view
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-progress');
+                    skillBars.forEach(bar => {
+                        const width = bar.style.width;
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 200);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.skill-category').forEach(el => {
+            skillObserver.observe(el);
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Project card hover effects
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Dynamic typing effect for hero subtitle (optional enhancement)
+        function typeEffect(element, text, speed = 100) {
+            element.innerHTML = '';
+            let i = 0;
+            const timer = setInterval(() => {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(timer);
+                }
+            }, speed);
+        }
+
+        // Initialize typing effect when page loads
+        window.addEventListener('load', () => {
+            const subtitle = document.querySelector('.hero-subtitle');
+            const originalText = subtitle.textContent;
+            typeEffect(subtitle, originalText, 50);
+        });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero');
+            const speed = scrolled * 0.5;
+            if (parallax) {
+                parallax.style.backgroundPosition = `center ${speed}px`;
+            }
+        });
+
+        // Add floating animation to profile image
+        function floatingAnimation() {
+            const profileImage = document.querySelector('.profile-image');
+            if (profileImage) {
+                profileImage.style.animation = 'float 3s ease-in-out infinite';
+            }
+        }
+
+        // Add CSS for floating animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float {
+                0% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+                100% { transform: translateY(0px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize floating animation
+        floatingAnimation();
+
+        // Add click analytics (optional)
+        document.querySelectorAll('a[href^="http"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // Track external link clicks
+                console.log(`External link clicked: ${link.href}`);
+            });
+        });
+
+        // Add scroll progress indicator
+        function addScrollProgress() {
+            const scrollProgress = document.createElement('div');
+            scrollProgress.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 0%;
+                height: 3px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                z-index: 9999;
+                transition: width 0.1s ease;
+            `;
+            document.body.appendChild(scrollProgress);
+
+            window.addEventListener('scroll', () => {
+                const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrolled = (window.scrollY / scrollHeight) * 100;
+                scrollProgress.style.width = scrolled + '%';
+            });
+        }
+
+        // Initialize scroll progress
+        addScrollProgress();
+    </script>
 </body>
 </html>
