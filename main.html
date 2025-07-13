@@ -1,0 +1,470 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdalla Edres - CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .cv-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .profile-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .name-title {
+            flex: 1;
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            font-weight: 400;
+            opacity: 0.9;
+            letter-spacing: 2px;
+        }
+
+        /* Summary Section */
+        .summary {
+            padding: 30px;
+            background: #fafafa;
+            border-left: 4px solid #667eea;
+        }
+
+        .summary p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .left-column {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .right-column {
+            flex: 2;
+            min-width: 400px;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            color: #333;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #667eea;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: #764ba2;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-icon {
+            width: 20px;
+            margin-right: 12px;
+            color: #667eea;
+        }
+
+        /* Education */
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .education-item h3 {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .education-item .degree {
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .education-item .details {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .company {
+            font-size: 1rem;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .duration {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .achievements {
+            list-style: none;
+            padding: 0;
+        }
+
+        .achievements li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .achievements li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 0.8rem;
+        }
+
+        /* Skills */
+        .skills-category {
+            margin-bottom: 20px;
+        }
+
+        .skills-category h3 {
+            color: #333;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .skills-list {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+            }
+
+            .name {
+                font-size: 2.5rem;
+            }
+
+            .main-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .cv-container {
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <!-- Header Section -->
+        <div class="header">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgdmlld0JveD0iMCAwIDEyMCAxMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiByeD0iNjAiIGZpbGw9IiM2NjdlZWEiLz4KPHN2ZyB4PSIzMCIgeT0iMzAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+CjxwYXRoIGQ9Ik0yMCAyMXYtMmE0IDQgMCAwIDAtNC00SDhhNCA0IDAgMCAwLTQgNHYyIi8+CjxjaXJjbGUgY3g9IjEyIiBjeT0iNyIgcj0iNCIvPgo8L3N2Zz4KPC9zdmc+" alt="Profile Photo" class="profile-photo">
+            <div class="name-title">
+                <h1 class="name">Abdalla Edres</h1>
+                <p class="title">Product Manager | SaaS | Growth</p>
+            </div>
+        </div>
+
+        <!-- Summary Section -->
+        <div class="summary">
+            <p>Product Manager with 7+ years of startup experience, leading 0→1 product development, full-cycle feature delivery, platform scaling, and API integrations scoping across B2B2C environments. Successfully launched products to 3M+ users, driving adoption, retention, and product-market fit. Skilled in product-led growth, customer success management, cross-functional collaboration, and automation. Proficient in SQL and Python for automation, debugging, and internal tooling.</p>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <span>reachme@abdallaedres.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <span>+971 585 585 305</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <span>Meydan, Dubai, UAE</span>
+                    </div>
+                </div>
+
+                <!-- Languages -->
+                <div class="section">
+                    <h2>Languages</h2>
+                    <div class="skills-list">
+                        • Arabic — Native<br>
+                        • English — Advanced (IELTS 8.0, CEFR C1)
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="section">
+                    <h2>Education</h2>
+                    <div class="education-item">
+                        <h3>AAST University</h3>
+                        <p class="degree">BSc. in Software Engineering</p>
+                        <p class="details">Alexandria, Egypt<br>Sept 2012 - June 2016</p>
+                    </div>
+                    <div class="education-item">
+                        <h3>Leadership Roles</h3>
+                        <p class="degree">Google Student Ambassador</p>
+                        <p class="details">2014 - 2016</p>
+                        <p class="degree">President of Student Council</p>
+                        <p class="details">2014 - 2016</p>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="section">
+                    <h2>Certifications</h2>
+                    <div class="skills-list">
+                        Analytics Mastery Course — Mixpanel (2020)<br>
+                        Product & AI Foundations — Reforge (2025)
+                    </div>
+                </div>
+
+                <!-- Core Competencies -->
+                <div class="section">
+                    <h2>Core Competencies</h2>
+                    <div class="skills-category">
+                        <h3>Product Management & User Success:</h3>
+                        <div class="skills-list">Product Strategy • Customer Lifecycle • Roadmap & Sprint Planning • Feature Prioritization • User Journey Mapping • Agile & Scrum • Technical Documentation • Requirements Gathering • Product-Led Growth</div>
+                    </div>
+                    <div class="skills-category">
+                        <h3>Technical Skills:</h3>
+                        <div class="skills-list">API Integrations • SQL • Python/JS Scripting • Debugging • JSON payload Structuring • Automation Workflows • GitHub • Power Automate</div>
+                    </div>
+                    <div class="skills-category">
+                        <h3>Analytics & Engagement Tools:</h3>
+                        <div class="skills-list">Mixpanel • CleverTap • DataDog • Braze • AppsFlyer • OneSignal • Branch.io • Twilio • Unifonic • Salesforce • Redash • Focity • Nolt • Linear • Figma • Jira • Miro</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <!-- Professional Experience -->
+                <div class="section">
+                    <h2>Professional Experience</h2>
+                    
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="company">UrbanPiper (Startup – F&B Tech) | Dubai, UAE</div>
+                                <div class="job-title">Product Manager</div>
+                            </div>
+                            <div class="duration">April 2025 – Present</div>
+                        </div>
+                        <ul class="achievements">
+                            <li>Scoped and delivered key product enhancements (Order modification flows, Self-onboarding), prioritizing features, defining user acceptance criteria, and adoption metrics.</li>
+                            <li>Led sprint planning, maintained backlog, prioritized features with engineering teams, ensuring alignment with business objectives.</li>
+                            <li>Wrote detailed product requirement documents (PRDs) and feature briefs with acceptance criteria.</li>
+                            <li>Conducted market research to assess product-market fit, funnel analysis, and cohort tracking to identify drop-off points for new features.</li>
+                            <li>Defined KPIs and monitored product health metrics (e.g., adoption, retention, churn, engagement, NPS).</li>
+                            <li>Led API integrations with partners (Talabat, Keeta, Careem, Foodics, NCR) to define scope, product requirements, resolve compatibility gaps, and validate endpoint behaviors.</li>
+                            <li>Drove adoption of new products (Periscope analytics, Menu V2) across the MENA region, conducting training sessions for 50+ external stakeholders.</li>
+                            <li>Scaled automation capabilities by building internal Python scripts that fetch data from several APIs, saving 35% in manual effort.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title">Senior Technical Account Manager</div>
+                            </div>
+                            <div class="duration">July 2023 – May 2025</div>
+                        </div>
+                        <ul class="achievements">
+                            <li>Managed a portfolio of strategic accounts, including Tim Hortons, B.Laban, Mama'esh, HB Brands, and Malak Al Tawouk, scaling their go-lives to $244K ARR.</li>
+                            <li>Onboarded and educated 50+ merchants in creating and managing online menus, reporting and analytics, partner integrations, and order flows to run their digital marketplace operations and experience efficiently.</li>
+                            <li>Acted as the primary liaison between enterprise brands, food aggregators, and POS vendors, ensuring alignment timelines and smooth onboarding.</li>
+                            <li>Automated workflows to eliminate repetitive tasks (e.g., replacing corrupted resources and catalog management), reducing TAT from 6+ hours to minutes, and minimizing error rates.</li>
+                            <li>Monitored order injection rates and performance to identify at-risk accounts and implement retention strategies, resulting in preserved $80K in ARR.</li>
+                            <li>Created and implemented SOPs for onboarding partners, including branded device checks and API validations, streamlining the process and reducing go-live delays by over 30%.</li>
+                            <li>Diagnosed and resolved integration layer and product bugs using tools like ElasticSearch (Kibana) and Postman, resolving operational issues impacting merchants.</li>
+                            <li>Trained new team joiners and helped set up the support function by building training materials and conducting knowledge transfer sessions.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="company">Ego (Startup – Ride-hailing) | Riyadh, Saudi Arabia</div>
+                                <div class="job-title">Head of Growth (Product)</div>
+                            </div>
+                            <div class="duration">July 2021 – March 2023</div>
+                        </div>
+                        <ul class="achievements">
+                            <li>Led post-launch strategy across growth, hiring, and product evolution; grew user base from 100K to over 3 million and increased driver registrations from 20K to 140K+ across Saudi Arabia.</li>
+                            <li>Oversaw full company restructuring and organizational redesign; defined new operational models and reporting structures, influencing long-term scalability.</li>
+                            <li>Managed an international team of 20 across engineering and growth; handled all product roadmaps, team expansions, and feature releases.</li>
+                            <li>Implemented data-driven acquisition and activation programs, driving 40K+ monthly active rides and daily profits exceeding 500K SAR.</li>
+                            <li>Negotiated and secured discounted cloud infrastructure deals with AWS and Google, reducing operational costs by over $50K per quarter.</li>
+                            <li>Designed and executed strategies to elevate the app ratings, which resulted in a 4.7+ rating across platforms.</li>
+                            <li>Drafted and enforced strategic government-aligned contracts to secure profit-sharing and national operations without compromising company equity.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="company">Cura Healthcare (Startup – Telemedicine) | Riyadh, Saudi Arabia</div>
+                                <div class="job-title">Growth Manager</div>
+                            </div>
+                            <div class="duration">August 2020 – July 2021</div>
+                        </div>
+                        <ul class="achievements">
+                            <li>Led user acquisition and revenue growth across MENA by implementing growth hacks across mobile and web using deep-linking, in-app banners, and optimized onboarding flows to maximize app installs and program purchases.</li>
+                            <li>Established strategic partnerships with Pfizer, AstraZeneca, Bupa, and Medgulf to co-launch targeted health campaigns, adding 300K+ new users to the platform.</li>
+                            <li>Built and tested high-performing paid media campaigns on Meta, Google, and Snapchat; improved CPLs by 38% through A/B testing and creative iteration.</li>
+                            <li>Automated Cura's mental wellness funnel by segmenting patient personas, aligning landing pages, and deploying condition-specific retargeting campaigns.</li>
+                            <li>Collaborated cross-functionally with design, engineering, and data teams to streamline landing page performance, boosting lead-to-sale conversion rate by 27%.</li>
+                            <li>Monitored growth KPIs daily via custom dashboards and cohort analytics, optimizing CAC: LTV ratios and increasing sales revenue by 25% within 6 months.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="company">Ego (Startup – Ride-hailing) | Riyadh, Saudi Arabia</div>
+                                <div class="job-title">IT Program Manager</div>
+                            </div>
+                            <div class="duration">April 2018 – August 2020</div>
+                        </div>
+                        <ul class="achievements">
+                            <li>Spearheaded the launch of the official Ego apps, bootstrapped without external funding, setting the foundation for Ego's future 4M+ user base.</li>
+                            <li>Owned end-to-end system architecture for Ego's ride-hailing platform, including client and driver apps, backend systems, analytics, performance dashboards, and marketing automation tools.</li>
+                            <li>Authored the entire product backlog across multiple systems using Agile methodology – covering user journeys, ride lifecycle states, and advanced ride logic and features (e.g., quiet ride feature).</li>
+                            <li>Orchestrated UX/UI strategy with external designers, ensuring real-time data visualization and seamless integrations across systems.</li>
+                            <li>Recruited, vetted, and managed a global engineering team to build native iOS (Swift), Android (Java), backend (Node.js, GoLang, AWS), and frontend (Vue.js, React Native) apps from scratch.</li>
+                            <li>Demonstrated founder-level ownership in high-stakes startup conditions by mitigating financial disruptions, restoring critical assets during data loss events, and preserving engineering team engagement throughout project delivery.</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <div class="company">Ego (Startup – Ride-hailing) | Riyadh, Saudi Arabia</div>
+                                <div class="job-title">Software Engineer</div>
+                            </div>
+                            <div class="duration">January 2017 – March 2018</div>
+                        </div>
+                        <ul class="achievements">
+                            <li>Joined the company at the ideation stage and conducted a full technical audit, uncovering fraudulent vendor activity and saving over 85k SAR by verifying invoicing and backend claims.</li>
+                            <li>Reverse-engineered existing white-label app (Cabily) to identify architectural flaws and security vulnerabilities.</li>
+                            <li>Conducted comprehensive competitor research to identify the roadmap needed to build the MVP.</li>
+                            <li>Provided critical early-stage technical analysis that led to the discontinuation of the initial product and initiated planning of a scalable, Uber-grade ride-hailing system.</li>
+                            <li>Acted as interim Tech Lead, coordinated with founders, and provided strategic recommendations that influenced full product redevelopment.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
