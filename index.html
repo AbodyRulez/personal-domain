@@ -559,8 +559,25 @@
 
         /* Contact Section */
         .contact {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
             color: white;
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .contact .container {
+            position: relative;
+            z-index: 2;
         }
 
         .contact-content {
@@ -742,7 +759,10 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <div class="profile-image" style="width: 200px; height: 200px; border-radius: 50%; border: 5px solid white; margin: 0 auto 2rem; display: block; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem; font-weight: bold;">AE</div>
+            <!-- Replace this SVG with your actual profile image -->
+            <!-- To use your uploaded image, replace the src with: -->
+            <!-- For the circular image: convert to base64 and replace the src -->
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdHlsZT0ic3RvcC1jb2xvcjojNjY3ZWVhO3N0b3Atb3BhY2l0eToxIiAvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3R5bGU9InN0b3AtY29sb3I6Izc2NGJhMjtzdG9wLW9wYWNpdHk6MSIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48Y2lyY2xlIGN4PSIxMDAiIGN5PSIxMDAiIHI9IjEwMCIgZmlsbD0idXJsKCNncmFkKSIvPjx0ZXh0IHg9IjEwMCIgeT0iMTIwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1zaXplPSI2MCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiI+QUU8L3RleHQ+PC9zdmc+" alt="Abdalla Edres" class="profile-image" style="width: 200px; height: 200px; border-radius: 50%; border: 5px solid white; margin: 0 auto 2rem; display: block; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); object-fit: cover;">
             <h1>Abdalla Edres</h1>
             <p class="hero-subtitle">Product Manager | Growth & Innovation</p>
             <p class="hero-description">
@@ -803,10 +823,6 @@
                 <div class="stat">
                     <div class="stat-number">$244K</div>
                     <div class="stat-label">ARR Scaled</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Merchants Onboarded</div>
                 </div>
             </div>
         </div>
@@ -1160,8 +1176,8 @@
     <section class="section contact" id="contact">
         <div class="container">
             <div class="contact-content">
-                <h2 class="section-title fade-in" style="color: white;">Let's Build Something Amazing</h2>
-                <p class="section-subtitle fade-in" style="color: rgba(255,255,255,0.9);">
+                <h2 class="section-title fade-in" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Let's Build Something Amazing</h2>
+                <p class="section-subtitle fade-in" style="color: rgba(255,255,255,0.95); text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
                     Ready to scale your product from 0→1 to millions of users?
                 </p>
                 
@@ -1187,7 +1203,7 @@
                     <a href="https://www.linkedin.com/in/abdallaedres/" target="_blank" class="social-link">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="https://github.com/abdallaedres" target="_blank" class="social-link">
+                    <a href="https://github.com/AbodyRulez" target="_blank" class="social-link">
                         <i class="fab fa-github"></i>
                     </a>
                     <a href="mailto:reachme@abdallaedres.com" class="social-link">
